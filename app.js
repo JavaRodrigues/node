@@ -1,15 +1,14 @@
-import express from 'express';
+import app from './config/server.js';
 
-const app = express();
-app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-    res.send('<html><body><h1>Portal de Noticias!</h1></body></html>');
-});
+import noticiasRoutes from './app/routes/noticias.js';
+noticiasRoutes(app);
 
-app.get('/tecnologia', (req, res) => {
-    res.send('<html><body><h1>Noticias de Tecnologia!</h1></body></html>');
-});
+import adminRoutes from './app/routes/admin.js';
+adminRoutes(app);
+
+import homeRoutes from './app/routes/home.js';
+homeRoutes(app);
 
 app.listen(3000, () => {
-  console.log('Servidor rodando com sucesso com Express na porta 3000');
+  console.log("Servidor ON");
 });

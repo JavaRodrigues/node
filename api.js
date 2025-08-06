@@ -5,6 +5,8 @@
 // DELETE
 import express from 'express';
 
+const msg = require('./mod_test.js');
+
 const app = express();
 const PORT = 3000;
 const arrResponse = [{name: 'Java Rodrigues', company: '4Digital', course: 'Node.js'},
@@ -16,4 +18,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => 
-    console.log(`Server is running on http://localhost:${PORT}`));
+    console.log(msg));
