@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <h2><%= Listagem %></h2>
+    <% if (result.length > 0) { %>
+    <ul>
+      <% for(let i=0; i<result.length; i++) { %>
+      <li>
+        <%= result[i].nome %> - <%= result[i].age || 'Idade não informada' %> (ID: <%= result[i]._id %>)
+      </li>
+      <% } %>
+    </ul>
+    <% } else { %>
+    <p>Nenhum cliente cadastrado.</p>
+    <% } %>
+
+    <hr />
+
+    <h2>Cadastro</h2>
+    <form action="/save" method="POST">
+      <p>
+        <label>Nome: <input type="text" name="nome" required /></label>
+      </p>
+      <p>
+        <label>Idade: <input type="number" name="age" /></label>
+      </p>
+      <p>
+        <input type="submit" value="Salvar" />
+      </p>
+    </form>
+
+    <h2>Edição</h2>
+    <form action="/edit" method="POST">
+      <p>
+        <label>ID do Cliente: <input type="text" name="id" required /></label>
+      </p>
+      <p>
+        <label>Novo Nome: <input type="text" name="nome" required /></label>
+      </p>
+      <p>
+        <label>Nova Idade: <input type="number" name="age" /></label>
+      </p>
+      <p><input type="submit" value="Editar" /></p>
+    </form>
+
+    <h2>Exclusão</h2>
+    <form action="/delete" method="POST">
+      <p>
+        <label>ID do Cliente: <input type="text" name="id" required /></label>
+      </p>
+      <p><input type="submit" value="Excluir" /></p>
+    </form>
+  </body>
+</html>

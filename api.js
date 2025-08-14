@@ -4,14 +4,14 @@
 // PUT / PATCH
 // DELETE
 import express from 'express';
-
-const msg = require('./mod_test.js');
+import msg from './mod_test.js';
 
 const app = express();
 const PORT = 3000;
-const arrResponse = [{name: 'Java Rodrigues', company: '4Digital', course: 'Node.js'},
-    {name: 'Roseli Pereira Rodrigues', company: 'ArtsDaZe', course: 'Costura'}, 
-    {name: 'Java Rodrigues', company: '4Digital', course: 'JavaScript'}];
+const arrResponse = [{nome: 'Java Rodrigues', company: '4Digital', course: 'Node.js', age: 47},
+    {nome: 'Roseli Pereira Rodrigues', company: 'ArtsDaZe', course: 'Costura', age: 40}, 
+    {nome: 'Heitor Pereira Rodrigues', company: '4Digital', course: 'JavaScript', age: 20}
+];
 
 app.get('/', (req, res) => {
     res.json(arrResponse);
